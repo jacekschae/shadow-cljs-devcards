@@ -1,0 +1,33 @@
+{:deps
+ true
+
+ :source-paths
+ [] ; configured in deps.edn
+
+ :dependencies
+ [] ; configured in deps.edn
+
+ :dev-http
+ {3000 "public"
+  3001 "public/devcards"}
+
+ :builds
+ {:main
+  {:target     :browser
+   :output-dir "public/js"
+   :asset-path "/js"
+   :modules    {:main {:init-fn main.app/init!}}}
+
+  :devcards
+  {:target           :browser-test ; using :browser-test to pickup all files that match `-test$`
+   ;:ns-regexp        "-test$" ; default option for :browser-test
+   :test-dir         "public/devcards"
+   :asset-path       "/devcards"
+   :runner-ns        test.devcards ; must have init fn to run
+   :compiler-options {:devcards           true
+                      :output-feature-set :es8}
+   :js-options       {:resolve
+                      {"devcards-marked"
+                       {:target :npm :require "marked"}
+                       "devcards-syntax-highlighter"
+                       {:target :npm :require "highlight.js"}}}}}}
