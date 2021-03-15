@@ -1,9 +1,11 @@
-{:path
+{:paths
  ["src/dev"
   "src/main"
   "src/test"]
 
- :deps
- {thheller/shadow-cljs {:mvn/version "2.11.23"}
-  devcards/devcards    {:mvn/version "0.2.7"}
-  reagent/reagent      {:mvn/version "1.0.0"}}}
+ :aliases
+ {:cljs
+  {:extra-deps
+   {thheller/shadow-cljs {:mvn/version "2.11.23"}
+    devcards/devcards    {:mvn/version "0.2.7"}
+    reagent/reagent      {:mvn/version "1.0.0"}}}}}

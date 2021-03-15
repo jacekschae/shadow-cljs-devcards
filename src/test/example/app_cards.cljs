@@ -1,8 +1,8 @@
-(ns test.app-test
+(ns example.app-cards
   (:require
-    [main.app :as app]
+    [example.app :as app]
     [reagent.core] ; needed for dc/defcard-rg
-    [devcards.core :as dc :include-macros true]))
+    [devcards.core :as dc]))
 
 (dc/defcard-doc
   "# Markdown

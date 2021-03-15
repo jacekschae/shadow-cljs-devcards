@@ -1,4 +1,4 @@
-(ns test.devcards
+(ns example.devcards
   (:require [devcards.core :as dc :include-macros true]
             [devcards.system :refer [app-state prevent-> set-current-path!]]
             ["highlight.js" :as hljs]

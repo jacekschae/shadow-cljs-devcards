@@ -1,4 +1,4 @@
-(ns main.app
+(ns example.app
   (:require [reagent.dom :as dom]
             [reagent.core :as r]))
 
@@ -20,6 +20,6 @@
   (dom/render [app]
     (.getElementById js/document "app")))
 
-(defn ^:export init!
+(defn init!
   []
   (start!))

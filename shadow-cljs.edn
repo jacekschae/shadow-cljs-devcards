@@ -1,29 +1,22 @@
 {:deps
- true
-
- :source-paths
- [] ; configured in deps.edn
-
- :dependencies
- [] ; configured in deps.edn
+ {:aliases [:cljs]}
 
  :dev-http
  {3000 "public"
-  3001 "public/devcards"}
+  3001 ["out/devcards" "public"]} ; public included to serve static assets under the same path as 3000 /img/shadow.png
 
  :builds
- {:main
+ {:app
   {:target     :browser
    :output-dir "public/js"
    :asset-path "/js"
-   :modules    {:main {:init-fn main.app/init!}}}
+   :modules    {:main {:init-fn example.app/init!}}}
 
   :devcards
   {:target           :browser-test ; using :browser-test to pickup all files that match `-test$`
-   ;:ns-regexp        "-test$" ; default option for :browser-test
-   :test-dir         "public/devcards"
-   :asset-path       "/devcards"
-   :runner-ns        test.devcards ; must have init fn to run
+   :ns-regexp        "-cards$" ; default option for :browser-test is -test$
+   :test-dir         "out/devcards"
+   :runner-ns        example.devcards ; must have init fn to run
    :compiler-options {:devcards           true
                       :output-feature-set :es8}
    :js-options       {:resolve
