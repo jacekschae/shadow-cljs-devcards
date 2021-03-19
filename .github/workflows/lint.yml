@@ -11,6 +11,5 @@ jobs:
       - name: Install clj-kondo
         run: sudo .bin/install-clj-kondo
 
-      - name: Lint src
-        run: |
-          clj-kondo --lint src --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'
+      - name: Lint src with clj-kondo
+        run: clj-kondo --lint src

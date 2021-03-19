@@ -10,5 +10,7 @@
   It's very easy to make some words **bold** and other words *italic* with Markdown.
   You can even [link to shadow-cljs!](https://github.com/thheller/shadow-cljs)")
 
+(declare counter)
+
 (dc/defcard-rg counter
   [app/app])
