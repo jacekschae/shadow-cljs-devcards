@@ -1,0 +1,16 @@
+name: Lint
+on: [ push ]
+
+jobs: 
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install clj-kondo
+        run: sudo ./bin/install-clj-kondo
+
+      - name: Lint src
+        run: |
+          clj-kondo --lint src --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'
